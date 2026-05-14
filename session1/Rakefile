@@ -1,0 +1,22 @@
+require "bundler/setup"
+Bundler.require(:default)
+
+require "fileutils"
+require_relative "config/environment"
+
+namespace :db do
+  task :create do
+    path = ActiveRecord::Base.connection_db_config.database
+    FileUtils.mkdir_p(File.dirname(path))
+    FileUtils.touch(path) unless File.exist?(path)
+  end
+
+  task migrate: :create do
+    paths = [File.expand_path("db/migrate", __dir__)]
+    ActiveRecord::MigrationContext.new(paths, ActiveRecord::SchemaMigration).migrate
+  end
+
+  task seed: :migrate do
+    load File.expand_path("db/seeds.rb", __dir__)
+  end
+end

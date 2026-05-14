@@ -1,0 +1,42 @@
+:root {
+  color-scheme: light;
+  --bg: #f4f0e8;
+  --bg-deep: #e8e1d4;
+  --ink: #1c1914;
+  --muted: #5c574d;
+  --line: #d4cdc0;
+  --card: #fffdf8;
+  --accent: #c45c3a;
+  --accent-soft: rgba(196, 92, 58, 0.12);
+  --doing: #2f6f5e;
+  --doing-soft: rgba(47, 111, 94, 0.12);
+  --done: #6b5a8c;
+  --done-soft: rgba(107, 90, 140, 0.14);
+  --shadow: 0 10px 28px rgba(28, 25, 20, 0.07);
+  --radius: 14px;
+  font-family: 'Outfit', system-ui, sans-serif;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: radial-gradient(1200px 600px at 12% -10%, #fff6ea 0%, transparent 55%),
+    radial-gradient(900px 500px at 100% 0%, #e9f2ee 0%, transparent 45%), var(--bg);
+  color: var(--ink);
+}
+
+#root {
+  min-height: 100vh;
+}
+
+button,
+input,
+select {
+  font: inherit;
+}
